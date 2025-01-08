@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,10 +16,9 @@
         .code_container{
             display: flex;
             justify-content: center;
-            
-            
-            
+               
         }
+       
 .code{
     
     width: 50px;
@@ -77,5 +76,99 @@ input_boxes.forEach((input, index) => {
 
 
 </script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #verification_heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #verification_subtext {
+            font-size: 16px;
+            color: #555;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .code-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .code {
+            width: 50px;
+            height: 60px;
+            text-align: center;
+            font-size: 24px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .code:focus {
+            border-color: #4CAF50;
+        }
+
+        .code-container input {
+            max-width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="verification_heading">Verify Your Account</h2>
+    <p id="verification_subtext">We emailed you the six-digit code to example@email.com. Enter the code below to confirm your email.</p>
+
+    <div class="code-container">
+        <input type="text" class="code" maxlength="1" placeholder="0" />
+        <input type="text" class="code" maxlength="1" placeholder="0" />
+        <input type="text" class="code" maxlength="1" placeholder="0" />
+        <input type="text" class="code" maxlength="1" placeholder="0" />
+        <input type="text" class="code" maxlength="1" placeholder="0" />
+        <input type="text" class="code" maxlength="1" placeholder="0" />
+    </div>
+
+    <script>
+        let inputBoxes = document.querySelectorAll('.code');
+
+        inputBoxes.forEach((input, index) => {
+            //
+            input.addEventListener('input', function() {
+                if (input.value.length == 1 && index < inputBoxes.length - 1) {
+                    inputBoxes[index + 1].focus();  
+                }
+            });
+
+            
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && input.value.length === 0 && index > 0) {
+                    inputBoxes[index - 1].focus();  
+                }
+            });
+        });
+    </script>
 </body>
 </html>
