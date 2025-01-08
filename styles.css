@@ -6,6 +6,6 @@
 	margin: 10px ;
 	
 }
-.code:focus {
+.code:focused {
             border-color: #4CAF50;
         }
