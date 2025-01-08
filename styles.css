@@ -6,3 +6,6 @@
 	margin: 10px ;
 	
 }
+.code:focus {
+            border-color: #4CAF50;
+        }
